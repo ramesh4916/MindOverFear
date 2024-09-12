@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phobia & Anxiety Self-Assessment</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+body {
+	  background-color:#9bb6b8;
+	font-family: sans-serif;
+}
+
+.assessment-container {
+	margin-top: 50px;
+	background-color: white;
+	padding: 40px;
+	border-radius: 10px;
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.assessment-title {
+	margin-bottom: 20px;
+	font-size: 28px;
+	font-weight: bold;
+	color: #007bff;
+}
+
+.question {
+	margin-bottom: 20px;
+}
+
+.btn-submit {
+	margin-top: 30px;
+	width: 100%;
+	font-size: 18px;
+	background-color: #007bff;
+	color: white;
+}
+
+.feedback {
+	margin-top: 30px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.logout-btn {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	background-color: #ff4c4c;
+	color: white;
+}
+</style>
+</head>
+<body>
+
+
+	<a href="login.jsp" class="btn logout-btn">Logout</a>
+
+	<div class="container assessment-container">
+		<h2 class="text-center assessment-title">Phobia & Anxiety
+			Self-Assessment</h2>
+
+		<form id="assessmentForm">
+			<!-- Question 1 -->
+			<div class="form-group question">
+				<label>1. How often do you experience fear or anxiety in
+					situations like public speaking?</label><br>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="q1" value="1">
+					Never
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="q1" value="2">
+					Occasionally
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="q1" value="3">
+					Often
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="q1" value="4">
+					Always
+				</div>
+			</div>
+
+			<!-- Question 2 -->
+			<div class="form-group question">
+				<label>2. Do you avoid places or situations because of your
+					fear or anxiety?</label><br>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="q2" value="1">
+					No
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="q2" value="2">
+					Sometimes
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="q2" value="3">
+					Frequently
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="q2" value="4">
+					Always
+				</div>
+			</div>
+
+			<!-- Question 3 -->
+			<div class="form-group question">
+				<label>3. How often do you experience physical symptoms
+					(e.g., sweating, rapid heartbeat) when feeling anxious?</label><br>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="q3" value="1">
+					Never
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="q3" value="2">
+					Occasionally
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="q3" value="3">
+					Often
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="q3" value="4">
+					Always
+				</div>
+			</div>
+
+			<!-- Question 4 -->
+			<div class="form-group question">
+				<label>4. Do you find it difficult to control your anxious
+					thoughts?</label><br>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="q4" value="1">
+					No, I can control them
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="q4" value="2">
+					Occasionally
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="q4" value="3">
+					Often
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="q4" value="4">
+					I always struggle to control them
+				</div>
+			</div>
+
+			<!-- Question 5 -->
+			<div class="form-group question">
+				<label>5. How often do you avoid social interactions due to
+					fear of embarrassment?</label><br>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="q5" value="1">
+					Never
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="q5" value="2">
+					Occasionally
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="q5" value="3">
+					Often
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="q5" value="4">
+					Always
+				</div>
+			</div>
+
+			<button type="button" class="btn btn-submit"
+				onclick="submitAssessment()">Submit</button>
+		</form>
+
+		<div class="feedback" id="feedback" style="display: none;">
+			<!-- Personalized feedback will be shown here -->
+		</div>
+	</div>
+
+	<script>
+		function submitAssessment() {
+			// Collect user responses
+			var q1 = $('input[name="q1"]:checked').val();
+			var q2 = $('input[name="q2"]:checked').val();
+			var q3 = $('input[name="q3"]:checked').val();
+			var q4 = $('input[name="q4"]:checked').val();
+			var q5 = $('input[name="q5"]:checked').val();
+
+			// Check if all questions are answered
+			if (!q1 || !q2 || !q3 || !q4 || !q5) {
+				alert("Please answer all the questions.");
+				return;
+			}
+
+			// Calculate the total score
+			var totalScore = parseInt(q1) + parseInt(q2) + parseInt(q3)
+					+ parseInt(q4) + parseInt(q5);
+
+			// Provide feedback based on the score
+			var feedbackText;
+			if (totalScore <= 5) {
+				feedbackText = "You have mild levels of anxiety. We suggest practicing mindfulness and breathing exercises from our resources.";
+			} else if (totalScore <= 10) {
+				feedbackText = "You have moderate anxiety. It's helpful to engage in relaxation techniques and consult our anxiety management tips.";
+			} else {
+				feedbackText = "You have high levels of anxiety. We recommend seeking professional help and using our self-help resources for managing anxiety.";
+			}
+
+			// Display the feedback
+			document.getElementById("feedback").innerHTML = feedbackText;
+			document.getElementById("feedback").style.display = "block";
+		}
+	</script>
+
+
+</body>
+</html>

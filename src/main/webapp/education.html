@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Resources - Mind Over Fear</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f7f6;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .video {
+            flex: 1 1 calc(33% - 20px);
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        iframe {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+        }
+
+        .pdf-container {
+            margin-top: 40px;
+        }
+
+        .pdf {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .pdf a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .pdf a:hover {
+            text-decoration: underline;
+        }
+
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ff4d4d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .logout-btn:hover {
+            background-color: #ff1a1a;
+        }
+    </style>
+    
+    
+    <style>
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+        color: #333;
+        margin-bottom: 30px;
+    }
+
+    .quiz {
+        margin-bottom: 25px;
+    }
+
+    .quiz h3 {
+        font-family: 'Arial', sans-serif;
+        font-size: 20px;
+        color: #0056b3;
+        margin-bottom: 15px;
+    }
+
+    .quiz p {
+        font-family: 'Arial', sans-serif;
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 10px;
+    }
+
+    .btn-outline-primary {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: 'Arial', sans-serif;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: #0056b3;
+    }
+
+    #quizAnswer1,
+    #quizAnswer2,
+    #quizAnswer3,
+    #quizAnswer4,
+    #quizAnswer5 {
+        display: none;
+        font-family: 'Arial', sans-serif;
+        font-size: 14px;
+        color: #28a745;
+        margin-top: 10px;
+    }
+</style>
+    
+    
+</head>
+<body>
+
+    <button class="logout-btn" onclick="window.location.href='profile.jsp'">Logout</button>
+
+    <div class="container">
+        <h1  >Mind Over Fear - Education Resources</h1>
+        <h2>Search Resources</h2>
+        <input type="text" id="searchInput" class="form-control" placeholder="Search for resources...">
+    </div>
+
+    <div class="container">
+        <h2>Video Categories</h2>
+        <div class="btn-group" role="group" aria-label="Video Categories">
+            <button type="button" class="btn btn-primary" onclick="filterVideos('All')">All</button>
+            <button type="button" class="btn btn-secondary" onclick="filterVideos('Phobias')">Phobias</button>
+            <button type="button" class="btn btn-secondary" onclick="filterVideos('Anxiety')">Anxiety</button>
+            <button type="button" class="btn btn-secondary" onclick="filterVideos('Techniques')">Techniques</button>
+        </div>
+        <div class="video-container" id="videoContainer">
+            <div class="video" data-category="Phobias">
+                <iframe src="https://www.youtube.com/embed/E705zO58SnQ?si=ERtLGurpiwd-Snd_" allowfullscreen></iframe>
+                <p><strong>Understanding Phobias - Causes and Effects</strong></p>
+                <p>This video provides an in-depth explanation of the causes and effects of phobias, featuring expert insights and real-life examples.</p>
+            </div>
+            <div class="video" data-category="Anxiety">
+                <iframe src="https://www.youtube.com/embed/aexBCHZxjvw?si=Sv9eLgAxeoyf-N50" allowfullscreen></iframe>
+                <p><strong>Coping Strategies for Anxiety</strong></p>
+                <p>This video covers various coping strategies to manage anxiety, with practical tips and expert advice.</p>
+            </div>
+            <div class="video" data-category="Phobias">
+                <iframe src="https://www.youtube.com/embed/BVIWqp7I6bE?si=csGHsqvAYNRnLHzN" allowfullscreen></iframe>
+                <p><strong>Overcoming Fear: Personal Stories</strong></p>
+                <p>Watch personal stories of individuals who have successfully overcome their fears and phobias.</p>
+            </div>
+            <div class="video" data-category="Techniques">
+                <iframe src="https://www.youtube.com/embed/m3-O7gPsQK0?si=tceg3sjmvHXAaW0d" allowfullscreen></iframe>
+                <p><strong>Relaxation Techniques for Anxiety</strong></p>
+                <p>This video introduces various relaxation techniques to help reduce anxiety and promote mental well-being.</p>
+            </div>
+            <div class="video" data-category="Anxiety">
+                <iframe src="https://www.youtube.com/embed/q1YAA8xmydM?si=LUIyCnSlL2PgsUOA" allowfullscreen></iframe>
+                <p><strong>How to Manage Social Anxiety</strong></p>
+                <p>Learn effective methods to manage and reduce social anxiety, including exposure therapy and cognitive-behavioral techniques.</p>
+            </div>
+            <div class="video" data-category="Techniques">
+                <iframe src="https://www.youtube.com/embed/jRJnFOcCShU?si=PyIdWeecSVUt1WlB" allowfullscreen></iframe>
+                <p><strong>Phobia Treatment: What You Need to Know</strong></p>
+                <p>This video provides an overview of various phobia treatment options, including therapy and medication.</p>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container">
+    <h2>Test Your Knowledge</h2>
+    <div class="quiz">
+        <h3>Quiz: Phobias and Anxiety</h3>
+        <p>Question 1: What is the primary cause of anxiety disorders?</p>
+        <button class="btn btn-outline-primary" onclick="showAnswer('A1')">Genetics</button>
+        <button class="btn btn-outline-primary" onclick="showAnswer('B1')">Environmental Factors</button>
+        <button class="btn btn-outline-primary" onclick="showAnswer('C1')">Both A and B</button>
+        <p id="quizAnswer1">Correct Answer: Both A and B</p>
+    </div>
+    <div class="quiz">
+        <p>Question 2: Which therapy is commonly used to treat phobias?</p>
+        <button class="btn btn-outline-primary" onclick="showAnswer('A2')">Cognitive Behavioral Therapy (CBT)</button>
+        <button class="btn btn-outline-primary" onclick="showAnswer('B2')">Exposure Therapy</button>
+        <button class="btn btn-outline-primary" onclick="showAnswer('C2')">Both A and B</button>
+        <p id="quizAnswer2">Correct Answer: Both A and B</p>
+    </div>
+    <!-- New Questions -->
+    <div class="quiz">
+        <p>Question 3: What is the most common symptom of a panic attack?</p>
+        <button class="btn btn-outline-primary" onclick="showAnswer('A3')">Chest Pain</button>
+        <button class="btn btn-outline-primary" onclick="showAnswer('B3')">Dizziness</button>
+        <button class="btn btn-outline-primary" onclick="showAnswer('C3')">Shortness of Breath</button>
+        <p id="quizAnswer3">Correct Answer: Shortness of Breath</p>
+    </div>
+    <div class="quiz">
+        <p>Question 4: Which phobia is characterized by an intense fear of being in public places?</p>
+        <button class="btn btn-outline-primary" onclick="showAnswer('A4')">Arachnophobia</button>
+        <button class="btn btn-outline-primary" onclick="showAnswer('B4')">Agoraphobia</button>
+        <button class="btn btn-outline-primary" onclick="showAnswer('C4')">Claustrophobia</button>
+        <p id="quizAnswer4">Correct Answer: Agoraphobia</p>
+    </div>
+    <div class="quiz">
+        <p>Question 5: What type of therapy focuses on changing negative thought patterns?</p>
+        <button class="btn btn-outline-primary" onclick="showAnswer('A5')">Cognitive Behavioral Therapy (CBT)</button>
+        <button class="btn btn-outline-primary" onclick="showAnswer('B5')">Psychodynamic Therapy</button>
+        <button class="btn btn-outline-primary" onclick="showAnswer('C5')">Interpersonal Therapy</button>
+        <p id="quizAnswer5">Correct Answer: Cognitive Behavioral Therapy (CBT)</p>
+    </div>
+</div>
+
+
+    <div class="container">
+        <h2>Related Articles</h2>
+        <ul>
+            <li><a href="https://www.apa.org/monitor/julaug05/figuring" target="_blank">Understanding the Psychology of Phobias</a></li>
+            <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5573566/" target="_blank">Effective Therapy Techniques for Anxiety</a></li>
+            <li><a href="https://www.healthline.com/health/anxiety/how-to-get-over-social-anxiety#get-extra-support" target="_blank">How to Overcome Social Phobia</a></li>
+        </ul>
+    </div>
+
+    <div class="container pdf-container">
+        <h2>PDF Resources</h2>
+        <div class="pdf">
+            <a href="img/deep_root.pdf" target="_blank">Understanding and Managing Phobias - PDF Guide</a>
+            <p>A comprehensive guide on understanding and managing phobias, including tips, techniques, and professional advice.</p>
+        </div>
+        <div class="pdf">
+            <a href="img/anxiety_guide.pdf" target="_blank">Effective Strategies for Anxiety Relief - PDF Guide</a>
+            <p>This PDF guide offers effective strategies for relieving anxiety, covering a range of practical tips and exercises.</p>
+        </div>
+        <div class="pdf">
+            <a href="img/Overcoming_Phobias.pdf" target="_blank">Relaxation Techniques for Mental Wellness - PDF Guide</a>
+            <p>Learn various relaxation techniques to promote mental wellness and reduce stress and anxiety.</p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function(event) {
+            var searchQuery = event.target.value.toLowerCase();
+            var videos = document.querySelectorAll('.video p');
+            var pdfs = document.querySelectorAll('.pdf a');
+            var articles = document.querySelectorAll('.article');
+            
+            videos.forEach(video => {
+                video.parentElement.style.display = video.textContent.toLowerCase().includes(searchQuery) ? '' : 'none';
+            });
+            
+            pdfs.forEach(pdf => {
+                pdf.parentElement.style.display = pdf.textContent.toLowerCase().includes(searchQuery) ? '' : 'none';
+            });
+        });
+
+        function filterVideos(category) {
+            var videos = document.querySelectorAll('.video');
+            videos.forEach(video => {
+                video.style.display = (category === 'All' || video.getAttribute('data-category') === category) ? 'block' : 'none';
+            });
+        }
+
+        
+    </script>
+    <script>
+    function showAnswer(answerId) {
+        var answers = {
+            'A1': 'Correct Answer: Both A and B',
+            'B1': 'Correct Answer: Both A and B',
+            'C1': 'Correct Answer: Both A and B',
+            'A2': 'Correct Answer: Both A and B',
+            'B2': 'Correct Answer: Both A and B',
+            'C2': 'Correct Answer: Both A and B',
+            'A3': 'Correct Answer: Shortness of Breath',
+            'B3': 'Correct Answer: Shortness of Breath',
+            'C3': 'Correct Answer: Shortness of Breath',
+            'A4': 'Correct Answer: Agoraphobia',
+            'B4': 'Correct Answer: Agoraphobia',
+            'C4': 'Correct Answer: Agoraphobia',
+            'A5': 'Correct Answer: Cognitive Behavioral Therapy (CBT)',
+            'B5': 'Correct Answer: Cognitive Behavioral Therapy (CBT)',
+            'C5': 'Correct Answer: Cognitive Behavioral Therapy (CBT)',
+        };
+        document.getElementById('quizAnswer' + answerId[1]).textContent = answers[answerId];
+        document.getElementById('quizAnswer' + answerId[1]).style.display = 'block';
+    }
+</script>
+    
+</body>
+</html>
